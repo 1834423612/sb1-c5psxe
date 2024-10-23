@@ -1,3 +1,18 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "antfu.vite",
+    "Vue.volar",
+    "johnsoncodehk.volarjs-labs",
+    "naumovs.color-highlight",
+    "intellsmi.comment-translate",
+    "mikestead.dotenv",
+    "file-icons.file-icons",
+    "lokalise.i18n-ally",
+    "antfu.iconify",
+    "kisstkondoros.vscode-gutter-preview",
+    "oderwat.indent-rainbow",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "wayou.vscode-todo-highlight"
+  ]
 }
