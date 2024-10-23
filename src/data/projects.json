@@ -1,0 +1,54 @@
+[
+    {
+        "id": "project1",
+        "title": "Neko Cafe ☕",
+        "description": "A cute online ordering system for a cat-themed cafe",
+        "image": "https://placehold.co/600x400/FFB6C1/FFF?text=Neko+Cafe",
+        "tags": [
+            "Vue.js",
+            "Node.js",
+            "MongoDB"
+        ],
+        "link": "https://neko-cafe.example.com",
+        "date": "2024-03-15"
+    },
+    {
+        "id": "project2",
+        "title": "Pixel Pals 👾",
+        "description": "A virtual pet game with adorable pixel art characters",
+        "image": "https://placehold.co/600x400/98FB98/000?text=Pixel+Pals",
+        "tags": [
+            "React",
+            "Canvas API",
+            "Firebase"
+        ],
+        "link": "https://pixel-pals.example.com",
+        "date": "2024-02-28"
+    },
+    {
+        "id": "project3",
+        "title": "Kawaii Kanban 📋",
+        "description": "A task management app with a sweet and colorful interface",
+        "image": "https://placehold.co/600x400/FFA07A/000?text=Kawaii+Kanban",
+        "tags": [
+            "Vue.js",
+            "Vuex",
+            "Express.js"
+        ],
+        "link": "https://kawaii-kanban.example.com",
+        "date": "2024-01-10"
+    },
+    {
+        "id": "project4",
+        "title": "Anime Watchlist 📺",
+        "description": "Keep track of your favorite anime series and episodes",
+        "image": "https://placehold.co/600x400/87CEFA/000?text=Anime+Watchlist",
+        "tags": [
+            "React",
+            "GraphQL",
+            "Node.js"
+        ],
+        "link": "https://anime-watchlist.example.com",
+        "date": "2023-12-05"
+    }
+]

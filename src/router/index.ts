@@ -1,23 +1,33 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import Home from '@/views/Home.vue'
+import Projects from '@/views/Projects.vue'
 
-import Index from '../views/index.vue';
-
-// Define the type of route
-interface Route {
-    path: string;
-    component: any; // Can be more strictly defined according to the actual component type
-}
-
-const routes: Route[] = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        component: Index,
+        name: 'Home',
+        component: Home
     },
-];
+    {
+        path: '/projects',
+        name: 'Projects',
+        component: Projects
+    },
+    // {
+    //     path: '/projects',
+    //     name: 'Projects',
+    //     component: () => import('../views/Projects.vue')
+    // },
+    // {
+    //     path: '/about',
+    //     name: 'About',
+    //     component: () => import('../views/About.vue')
+    // }
+]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
-});
+    routes
+})
 
-export default router;
+export default router
