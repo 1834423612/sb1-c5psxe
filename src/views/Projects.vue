@@ -8,9 +8,9 @@
                 <p class="text-gray-600 mb-4">{{ project.description }}</p>
                 <p class="text-gray-600 mb-4">{{ project.details }}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span v-for="tag in project.tags.split(',')" :key="tag"
-                        class="bg-kawaii-pink-200 text-kawaii-pink-800 px-2 py-1 rounded-full text-sm">
-                        {{ tag.trim() }}
+                    <span v-for="tag in project.tags" :key="tag"
+                        class="bg-pink-200 text-pink-800 px-2 py-1 rounded-full text-sm">
+                        {{ tag }}
                     </span>
                 </div>
                 <a :href="project.link" target="_blank" rel="noopener noreferrer"
@@ -35,7 +35,7 @@ const projects = ref([
         description: t('projects.zdSchool.description'),
         details: t('projects.zdSchool.details'),
         image: "https://cdn.jsdelivr.net/gh/1834423612/new-home@master/source/img/website.png",
-        tags: t('projects.zdSchool.tags', { returnObjects: true }),
+        tags: t('projects.zdSchool.tags').split(','),
         link: "https://zd.kjchmc.cn",
         date: "2022-07"
     },
@@ -45,7 +45,7 @@ const projects = ref([
         description: t('projects.graduationVideo.description'),
         details: t('projects.graduationVideo.details'),
         image: "https://cdn.jsdelivr.net/gh/1834423612/new-home@master/source/img/poster.png",
-        tags: t('projects.graduationVideo.tags', { returnObjects: true }),
+        tags: t('projects.graduationVideo.tags').split(','),
         link: "https://zd.kjchmc.cn/video.html",
         date: "2022-07-01"
     },
@@ -55,7 +55,7 @@ const projects = ref([
         description: t('projects.zdSchoolMinecraft.description'),
         details: t('projects.zdSchoolMinecraft.details'),
         image: "https://cdn.jsdelivr.net/gh/1834423612/new-home@master/source/img/mc.png",
-        tags: t('projects.zdSchoolMinecraft.tags', { returnObjects: true }),
+        tags: t('projects.zdSchoolMinecraft.tags').split(','),
         link: "http://mc.kjchmc.cn:8123",
         date: "2022-06-25"
     },
@@ -65,7 +65,7 @@ const projects = ref([
         description: t('projects.frcStrategyCharts.description'),
         details: t('projects.frcStrategyCharts.details'),
         image: "/source/img/Robotics-Strategy-Charts.png",
-        tags: t('projects.frcStrategyCharts.tags', { returnObjects: true }),
+        tags: t('projects.frcStrategyCharts.tags').split(','),
         link: "https://scoutify-test.vercel.app",
         date: "2023-12"
     },
@@ -75,7 +75,7 @@ const projects = ref([
         description: t('projects.frcWebsite.description'),
         details: t('projects.frcWebsite.details'),
         image: "/source/img/Team-695-Official-Website.png",
-        tags: t('projects.frcWebsite.tags', { returnObjects: true }),
+        tags: t('projects.frcWebsite.tags').split(','),
         link: "https://www.frc695.com/?from=www.kjchmc.cn/lab",
         date: "2024-07"
     }

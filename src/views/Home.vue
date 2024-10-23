@@ -59,11 +59,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import SocialLinks from '../components/SocialLinks.vue'
 import RollTags from '../components/RollTags.vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import projectsData from '../data/projects.json'
+
+const { t, locale } = useI18n()
+
+const setTitle = () => {
+  document.title = t('pageTitle')
+}
+
+onMounted(() => {
+  setTitle()
+})
+
+watch(locale, () => {
+  setTitle()
+})
 
 const skills = ref([
   'Vue.js / React',
