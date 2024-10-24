@@ -1,22 +1,24 @@
 <template>
-    <div class="flex justify-center space-x-4">
+    <div class="flex flex-wrap justify-center gap-4 px-4" ref="socialLinksRef">
         <div v-for="link in socialLinks" :key="link.name" class="group relative">
             <a v-if="link.url !== '#'" :href="link.url" target="_blank" rel="noopener noreferrer" class="block">
                 <div
-                    class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-transform transform group-hover:scale-110">
-                    <Icon :icon="link.icon" class="w-6 h-6" :style="{ color: link.color }" />
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-transform transform group-hover:scale-110">
+                    <Icon :icon="link.icon" class="w-5 h-5 sm:w-6 sm:h-6" :style="{ color: link.color }" />
                 </div>
-                <div class="w-0 h-1 mt-1 bg-transparent group-hover:bg-current transition-all duration-300" :style="{ backgroundColor: link.color }"></div>
+                <div class="w-0 h-1 mt-1 bg-transparent group-hover:bg-current transition-all duration-300"
+                    :style="{ backgroundColor: link.color }"></div>
             </a>
-            <div v-else @mouseenter="showTooltip(link.name)" @mouseleave="hideTooltip" class="cursor-pointer">
+            <div v-else @click="showTooltip(link.name)" class="cursor-pointer">
                 <div
-                    class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-transform transform group-hover:scale-110">
-                    <Icon :icon="link.icon" class="w-6 h-6" :style="{ color: link.color }" />
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-transform transform group-hover:scale-110">
+                    <Icon :icon="link.icon" class="w-5 h-5 sm:w-6 sm:h-6" :style="{ color: link.color }" />
                 </div>
-                <div class="w-0 h-1 mt-1 bg-transparent group-hover:bg-current transition-all duration-300" :style="{ backgroundColor: link.color }"></div>
+                <div class="w-0 h-1 mt-1 bg-transparent group-hover:bg-current transition-all duration-300"
+                    :style="{ backgroundColor: link.color }"></div>
             </div>
             <div v-if="activeTooltip === link.name"
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded shadow-lg">
+                class="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-xs sm:text-sm rounded shadow-lg whitespace-nowrap">
                 {{ link.tooltip }}
             </div>
         </div>
@@ -24,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useI18n } from 'vue-i18n'
 
@@ -45,6 +47,7 @@ const socialLinks = ref([
 ])
 
 const activeTooltip = ref('')
+const socialLinksRef = ref<HTMLElement | null>(null)
 
 const showTooltip = (name: string) => {
     activeTooltip.value = name
@@ -53,6 +56,20 @@ const showTooltip = (name: string) => {
 const hideTooltip = () => {
     activeTooltip.value = ''
 }
+
+const handleClickOutside = (event: MouseEvent) => {
+    if (socialLinksRef.value && !socialLinksRef.value.contains(event.target as Node)) {
+        hideTooltip()
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+    document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>
@@ -65,6 +82,7 @@ const hideTooltip = () => {
         width: 0;
         margin-left: 50%;
     }
+
     to {
         width: 100%;
         margin-left: 0;

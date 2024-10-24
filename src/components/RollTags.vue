@@ -1,16 +1,16 @@
 <template>
-    <div class="bg-white bg-opacity-50 p-6 rounded-3xl shadow-lg">
-        <h3 class="text-xl font-bold mb-4 text-kawaii-purple-600">Click me for a surprise! ✨</h3>
+    <div class="bg-white bg-opacity-50 p-6 rounded-3xl shadow-lg sm:p-4">
+        <h3 class="text-xl font-bold mb-4 text-kawaii-purple-600 sm:text-lg">Click me for a surprise! ✨</h3>
         <button @click="rollTags"
-            class="px-6 py-3 bg-kawaii-pink-400 text-white rounded-full hover:bg-kawaii-pink-500 transition-colors duration-300 mb-6 shadow-md hover:shadow-lg transform hover:scale-105">
+            class="px-6 py-3 bg-kawaii-pink-400 text-white rounded-full hover:bg-kawaii-pink-500 transition-colors duration-300 mb-6 shadow-md hover:shadow-lg transform hover:scale-105 sm:px-4 sm:py-2 sm:text-sm">
             Roll Tags
         </button>
-        <div class="relative h-12 overflow-hidden bg-kawaii-blue-100 rounded-full shadow-inner">
+        <div class="relative h-12 overflow-hidden bg-kawaii-blue-100 rounded-full shadow-inner sm:h-10">
             <transition-group name="roll" tag="div" class="absolute inset-0">
                 <div v-for="(tag, index) in visibleTags" :key="tag + index"
                     class="absolute inset-0 flex items-center justify-center">
                     <span
-                        class="bg-white px-4 py-2 rounded-full inline-flex items-center text-lg font-semibold shadow-md"
+                        class="bg-white px-4 py-2 rounded-full inline-flex items-center text-lg font-semibold shadow-md sm:text-sm"
                         :style="{ color: getRandomColor() }">
                         <Icon icon="mdi:pound" class="mr-2" />
                         {{ tag }}

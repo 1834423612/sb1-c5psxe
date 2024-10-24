@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 relative">
       <div class="kawaii-border mb-12"></div>
-      <img src="https://placehold.co/60x60/12a5ff/FFFFFF?text=Hello" alt="Kawaii Avatar" class="w-32 h-32 mx-auto mb-4 rounded-full border-4 border-kawaii-pink-300 animate-bounce">
-      <h2 class="text-4xl md:text-6xl font-bold mb-2 animate-wiggle text-kawaii-purple-600">
+      <img src="https://placehold.co/60x60/12a5ff/FFFFFF?text=Hello" alt="Kawaii Avatar" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 rounded-full border-4 border-kawaii-pink-300 animate-bounce">
+      <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 animate-wiggle text-kawaii-purple-600 break-words">
         {{ $t('title') }}
       </h2>
-      <p class="text-xl md:text-2xl text-kawaii-blue-600">{{ $t('subtitle') }}</p>
+      <p class="text-lg sm:text-xl md:text-2xl text-kawaii-blue-600">{{ $t('subtitle') }}</p>
       <div class="absolute top-0 left-0 w-full h-full pointer-events-none kawaii-stars"></div>
       <div class="kawaii-border mt-8"></div>
     </div>
@@ -15,43 +15,42 @@
     
     <RollTags class="mb-8" @click="rollOnce" />
 
-    <section class="bg-white bg-opacity-50 p-6 rounded-3xl shadow-lg mb-8">
-      <h2 class="text-2xl font-bold mb-4 text-kawaii-green-700">{{ $t('about.title') }}</h2>
-      <p class="text-kawaii-blue-800 relative z-10">
+    <section class="bg-white bg-opacity-50 p-4 sm:p-6 rounded-3xl shadow-lg mb-8">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-kawaii-green-700">{{ $t('about.title') }}</h2>
+      <p class="text-sm sm:text-base text-kawaii-blue-800 relative z-10">
         {{ $t('about.content') }}
       </p>
-      <p class="text-kawaii-blue-800 relative z-10 mt-4">
+      <p class="text-sm sm:text-base text-kawaii-blue-800 relative z-10 mt-4">
         <span class="font-bold">{{ $t('about.intro') }}</span> <span class="font-bold"><span class="text-xs align-top">@kjch</span>(<span class="text-blue-500 font-bold">K</span><span class="text-sm">uang</span> <span class="text-blue-500 font-bold">J</span><span class="text-sm">ia</span><span class="text-blue-500 font-bold">CH</span><span class="text-sm">eng</span>)</span>
         <br> {{ $t('about.description') }}
         <br> {{ $t('about.current') }}
       </p>
-      <p class="text-kawaii-blue-800 relative z-10 mt-4">
+      <p class="text-sm sm:text-base text-kawaii-blue-800 relative z-10 mt-4">
         {{ $t('about.interest') }}
       </p>
-      <p class="text-kawaii-blue-800 relative z-10 mt-4">
+      <p class="text-sm sm:text-base text-kawaii-blue-800 relative z-10 mt-4">
         {{ $t('about.hope') }}
       </p>
     </section>
 
-    <section class="bg-white bg-opacity-50 p-6 rounded-3xl shadow-lg mb-8">
-      <h2 class="text-2xl font-bold mb-4 text-kawaii-orange-500">{{ $t('skills.title') }}</h2>
-      <ul class="grid grid-cols-2 gap-4">
+    <section class="bg-white bg-opacity-50 p-4 sm:p-6 rounded-3xl shadow-lg mb-8">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-kawaii-orange-500">{{ $t('skills.title') }}</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <li v-for="skill in skills" :key="skill" class="flex items-center">
-          <span class="w-4 h-4 mr-2 rounded-full bg-kawaii-pink-300"></span>
-          {{ skill }}
+          <span class="w-3 h-3 sm:w-4 sm:h-4 mr-2 rounded-full bg-kawaii-pink-300"></span>
+          <span class="text-sm sm:text-base">{{ skill }}</span>
         </li>
       </ul>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-2xl font-bold mb-4 text-kawaii-purple-500">{{ $t('projects.title') }}</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-kawaii-purple-500">{{ $t('projects.title') }}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <ProjectCard v-for="project in latestProjects" :key="project.id" :project="project" />
       </div>
       <div class="text-center mt-4">
-        <router-link to="/projects" class="inline-block px-6 py-3 bg-kawaii-pink-400 text-white rounded-full hover:bg-kawaii-pink-500 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+        <router-link to="/projects" class="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-kawaii-pink-400 text-white text-sm sm:text-base rounded-full hover:bg-kawaii-pink-500 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
           {{ $t('projects.viewAll') }}
-        
         </router-link>
       </div>
     </section>

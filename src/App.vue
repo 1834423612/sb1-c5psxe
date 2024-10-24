@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-kawaii-blue-100 text-kawaii-blue-900 font-kawaii flex flex-col justify-between">
-    <header class="py-4 mb-6 flex justify-center items-center flex-grow">
-      <nav class="flex justify-between items-center max-w-4xl mx-auto px-4 w-full">
+    <header class="py-4 mb-6 px-4">
+      <nav class="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto w-full gap-4">
         <img src="https://placehold.co/60x60/12a5ff/FFFFFF?text=Hello" alt="Kawaii Avatar" class="w-12 h-12 rounded-full border-4 border-kawaii-pink-300" />
-        <div class="bg-white bg-opacity-70 backdrop-blur-md rounded-2xl px-6 py-3 border-solid border-2 border-blue-400">
-          <ul class="flex justify-center space-x-6">
+        <div class="bg-white bg-opacity-70 backdrop-blur-md rounded-2xl px-4 py-2 border-solid border-2 border-blue-400 w-full sm:w-auto">
+          <ul class="flex justify-center space-x-4 sm:space-x-6 overflow-x-auto whitespace-nowrap">
             <li v-for="route in routes" :key="route.path">
-              <router-link :to="route.path" class="text-lg font-medium hover:text-kawaii-pink-500 transition-colors duration-300" :class="{ 'text-kawaii-purple-500': route.path === currentRoute }">
+              <router-link :to="route.path" class="text-sm sm:text-lg font-medium hover:text-kawaii-pink-500 transition-colors duration-300" :class="{ 'text-kawaii-purple-500': route.path === currentRoute }">
                 {{ route.name }}
               </router-link>
             </li>
@@ -16,7 +16,7 @@
       </nav>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 flex-grow">
+    <main class="max-w-4xl mx-auto px-4 w-full flex-grow">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -24,8 +24,8 @@
       </router-view>
     </main>
 
-    <footer class="mt-12 text-center text-kawaii-blue-600 pb-8">
-      <p>{{ $t('footer.copyright') }}</p>
+    <footer class="mt-12 text-center text-kawaii-blue-600 pb-8 px-4">
+      <p class="text-sm sm:text-base">{{ $t('footer.copyright') }}</p>
     </footer>
   </div>
 </template>
